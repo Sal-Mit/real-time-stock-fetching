@@ -1,0 +1,28 @@
+{
+  "name": "@crypto-app/backend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Node.js backend server for crypto price streaming",
+  "main": "dist/server.js",
+  "types": "dist/server.d.ts",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc",
+    "start": "tsx dist/server.js",
+    "clean": "rm -rf dist",
+    "lint": "eslint src --ext .ts"
+  },
+  "dependencies": {
+    "@bufbuild/protobuf": "^2.7.0",
+    "@connectrpc/connect": "^2.1.0",
+    "@connectrpc/connect-node": "^2.1.0",
+    "@crypto-app/proto": "workspace:*",
+    "@crypto-app/shared": "workspace:*",
+    "playwright": "^1.40.0"
+  },
+  "devDependencies": {
+    "@crypto-app/tsconfig": "workspace:*",
+    "tsx": "^4.0.0",
+    "typescript": "^5.0.0"
+  }
+}

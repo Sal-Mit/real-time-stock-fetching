@@ -1,0 +1,70 @@
+syntax = "proto3";
+
+package price_service;
+
+
+service PriceService {
+  rpc AddTicker(AddTickerRequest) returns (AddTickerResponse);
+  
+  rpc RemoveTicker(RemoveTickerRequest) returns (RemoveTickerResponse);
+  
+  rpc StreamPrices(StreamPricesRequest) returns (stream PriceUpdate);
+  
+  rpc GetTickers(GetTickersRequest) returns (GetTickersResponse) {
+    option idempotency_level = NO_SIDE_EFFECTS;
+  }
+  
+  rpc ValidateTicker(ValidateTickerRequest) returns (ValidateTickerResponse) {
+    option idempotency_level = NO_SIDE_EFFECTS;
+  }
+}
+
+
+message AddTickerRequest {
+  string ticker = 1; 
+}
+
+message AddTickerResponse {
+  bool success = 1;
+  string message = 2;
+  string ticker = 3;
+}
+
+message RemoveTickerRequest {
+  string ticker = 1;
+}
+
+message RemoveTickerResponse {
+  bool success = 1;
+  string message = 2;
+  string ticker = 3;
+}
+
+message StreamPricesRequest {
+  // Empty for now, could include filters in the future
+}
+
+
+message PriceUpdate {
+  string ticker = 1;
+  double price = 2;
+  string exchange = 3;
+}
+
+message GetTickersRequest {
+  // Empty for now
+}
+
+message GetTickersResponse {
+  repeated string tickers = 1;
+}
+
+message ValidateTickerRequest {
+  string ticker = 1;
+}
+
+message ValidateTickerResponse {
+  bool isValid = 1;
+  string message = 2;
+  repeated string suggestions = 3;
+}

@@ -1,0 +1,20 @@
+{
+  "name": "@crypto-app/proto",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Protocol buffer definitions for crypto price streaming service",
+  "main": "gen/index.js",
+  "types": "gen/index.d.ts",
+  "scripts": {
+    "generate": "buf generate",
+    "lint": "buf lint",
+    "format": "buf format -w",
+    "build": "buf generate"
+  },
+  "devDependencies": {
+    "@bufbuild/protoc-gen-es": "^2.7.0"
+  },
+  "dependencies": {
+    "@bufbuild/protobuf": "^2.7.0"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "@crypto-app/shared",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Shared utilities and types for crypto price streaming app",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf dist",
+    "lint": "eslint src --ext .ts"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  }
+}
